@@ -1,0 +1,10 @@
+---
+title:  "Getting Started"
+author: "Jake Peters"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using construct_dictionary_tree}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---

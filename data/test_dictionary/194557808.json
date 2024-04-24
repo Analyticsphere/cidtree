@@ -1,0 +1,1 @@
+{"key":"How old were you when you first smoked a cigarette?","conceptID":194557808,"object_type":"QUESTION","label":"Age first used cigarettes","name":"SrvSAS_AgeCigsUseF_v1r0","notes":"Range check min=0 max=sum(isDefined(D_150344905,age),1)","parent":965707586,"responses":{"N/A":812620303}}

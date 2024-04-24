@@ -1,0 +1,17 @@
+Package: cidtree
+Type: Package
+Title: cidtree: A Package for mapping concepts using a tree-based data dictionary
+Version: 0.1.0
+Author: Jake Peters
+Maintainer: The package maintainer <jcbptrs@gmail.com>
+Description: This package uses `data.tree` to construct a tree object from JSON representing a data dictionary. This package was originally developed for the Connect for Cancer Prevention Cohort Study.
+License: MIT License
+Encoding: UTF-8
+LazyData: true
+Suggests:
+    kinitr,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 7.3.1
+Roxygen: list(markdown = TRUE)

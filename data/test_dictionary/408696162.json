@@ -1,0 +1,1 @@
+{"key":"Age first used cigarettes on a regular basis number","conceptID":408696162,"object_type":"QUESTION","label":"Age first used cigarettes on a regular basis - num","name":"SrvSAS_AgeCigsUseRegF_v1r0","notes":"Range check min=valueOrDefault(\"D_194557808\",0) max=sum(isDefined(D_150344905,age),1)","parent":965707586,"source":790436165,"responses":{"N/A":812620303}}

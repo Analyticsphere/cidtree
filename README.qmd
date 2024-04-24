@@ -1,0 +1,88 @@
+---
+title: cidtree
+output: github_document
+author: Jake Peters
+modified-date: Apr 2024
+format: gfm
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+The objectives of `cidtree` package are to
+
+1.  construct a `data.tree` object from a data dictionary
+
+2.  provide convenient functions to explore the data dictionary
+
+3.  automate the mapping of Concept IDs to the associated concepts and metadata.
+
+4.  map concepts to their counterparts in the cidtree GCP tables
+
+I intend this to be a toolkit to standardize the way that analysts interact with the Connect for Cancer Prevention data dictionary.
+
+## Example
+
+Load dependencies
+```{r, message=FALSE}
+library(dplyr)
+library(data.tree)
+library(jsonlite)
+```
+
+#### Install cidtree
+
+```{r}
+devtools::load_all("./")
+```
+
+<!-- Install cidtree from github -->
+
+<!-- ```{r, echo=TRUE, include=TRUE} -->
+
+<!-- ``` -->
+
+
+#### Construct data dictionary tree
+
+```{r, out.extra='scale=0.1'}
+path <- "./data/test_dictionary"
+dd <- cidtree::construct_dictionary_tree(path)
+print(dd, 'concept_str')
+```
+
+#### View data frame version of the data dictionary
+
+```{r, echo=TRUE, include=TRUE}
+
+dd$df %>% 
+  select(cid, path, key) %>%
+  head(5)
+```
+
+#### Retrieve a key, given a cid
+
+```{r, echo=TRUE, include=TRUE}
+cid <- 639684251
+key <- cidtree::get_key(dd, cid)
+print(key)
+```
+
+Retrieve a concept id, given a key
+
+```{r, echo=TRUE, include=TRUE}
+key <- "Do you smoke cigarettes now?"
+cid <- cidtree::get_cid(dd, key)
+print(cid)
+```
+
+Retrieve all metadata using the cid
+
+```{r, echo=TRUE, include=TRUE, out.extra='scale=0.5'}
+meta <- cidtree::get_meta(dd, cid)
+meta$cid
+meta$path
+meta$var_name
+meta$responses
+meta$concept_type
+```
+
