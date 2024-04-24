@@ -100,3 +100,7 @@ meta$var_name
 meta$responses
 meta$concept_type
 ```
+
+## References
+
+-   This library is built on the [data.tree](https://cran.r-project.org/web/packages/data.tree/vignettes/data.tree.html) library. So the `dd` object inherits has the same core functionality as an other `data.tree` object.
