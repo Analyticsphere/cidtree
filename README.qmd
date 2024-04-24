@@ -2,11 +2,16 @@
 title: cidtree
 output: github_document
 author: Jake Peters
-modified-date: Apr 2024
+date: Apr 2024
+toc: true
+toc-depth: 3
+toc-float: true
 format: gfm
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+## Introduction
 
 The objectives of `cidtree` package are to
 
@@ -22,7 +27,7 @@ I intend this to be a toolkit to standardize the way that analysts interact with
 
 Here is the **documentation**: <https://github.com/Analyticsphere/cidtree/blob/main/cidtree_docs.pdf>
 
-## Example 
+## Examples
 
 Load dependencies
 
@@ -30,29 +35,37 @@ Load dependencies
 library(dplyr)
 library(data.tree)
 library(jsonlite)
+library(devtools)
 ```
 
-#### Install cidtree
+### Install `cidtree`
 
-```{r}
+**Option 1:** If you have cloned this repo and are working inside the \~/cidtree/ directory, use this:
+
+```{r, message=FALSE}
 devtools::load_all("./")
 ```
 
-<!-- Install cidtree from github -->
+**Option 2:** If you want to install the library and load it like any other library, use this:
 
-<!-- ```{r, echo=TRUE, include=TRUE} -->
+```{r, message=FALSE}
+devtools::install_github('Analyticsphere/cidtree')
+library(cidtree)
+```
 
-<!-- ``` -->
+### Construct and visualize a data dictionary tree
 
-#### Construct data dictionary tree
-
-```{r, out.extra='scale=0.1'}
+```{r}
 path <- "./data/test_dictionary"
 dd <- cidtree::construct_dictionary_tree(path)
 print(dd, 'concept_str')
 ```
 
-#### View data frame version of the data dictionary
+::: callout-note
+## Notice that all of the RESPONSE concepts are nested directly under the root node rather than under the QUESTION objects. This is necessary because they can appear only once in the tree.
+:::
+
+### View dictionary as a dataframe
 
 ```{r, echo=TRUE, include=TRUE}
 
@@ -61,7 +74,7 @@ dd$df %>%
   head(5)
 ```
 
-#### Retrieve a key, given a cid
+### Retrieve a key, given a cid
 
 ```{r, echo=TRUE, include=TRUE}
 cid <- 639684251
@@ -69,7 +82,7 @@ key <- cidtree::get_key(dd, cid)
 print(key)
 ```
 
-Retrieve a concept id, given a key
+### Retrieve a concept id, given a key
 
 ```{r, echo=TRUE, include=TRUE}
 key <- "Do you smoke cigarettes now?"
@@ -77,7 +90,7 @@ cid <- cidtree::get_cid(dd, key)
 print(cid)
 ```
 
-Retrieve all metadata using the cid
+### Retrieve all metadata using the cid
 
 ```{r, echo=TRUE, include=TRUE, out.extra='scale=0.5'}
 meta <- cidtree::get_meta(dd, cid)

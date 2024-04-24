@@ -1,7 +1,22 @@
 # cidtree
 Jake Peters
+2024-04-01
+
+- [Introduction](#introduction)
+- [Examples](#examples)
+  - [Install `cidtree`](#install-cidtree)
+  - [Construct and visualize a data dictionary
+    tree](#construct-and-visualize-a-data-dictionary-tree)
+  - [View dictionary as a dataframe](#view-dictionary-as-a-dataframe)
+  - [Retrieve a key, given a cid](#retrieve-a-key-given-a-cid)
+  - [Retrieve a concept id, given a
+    key](#retrieve-a-concept-id-given-a-key)
+  - [Retrieve all metadata using the
+    cid](#retrieve-all-metadata-using-the-cid)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+## Introduction
 
 The objectives of `cidtree` package are to
 
@@ -20,7 +35,7 @@ interact with the Connect for Cancer Prevention data dictionary.
 Here is the **documentation**:
 <https://github.com/Analyticsphere/cidtree/blob/main/cidtree_docs.pdf>
 
-## Example
+## Examples
 
 Load dependencies
 
@@ -28,21 +43,27 @@ Load dependencies
 library(dplyr)
 library(data.tree)
 library(jsonlite)
+library(devtools)
 ```
 
-#### Install cidtree
+### Install `cidtree`
+
+**Option 1:** If you have cloned this repo and are working inside the
+~/cidtree/ directory, use this:
 
 ``` r
 devtools::load_all("./")
 ```
 
-    ℹ Loading cidtree
+**Option 2:** If you want to install the library and load it like any
+other library, use this:
 
-<!-- Install cidtree from github -->
-<!-- ```{r, echo=TRUE, include=TRUE} -->
-<!-- ``` -->
+``` r
+devtools::install_github('Analyticsphere/cidtree')
+library(cidtree)
+```
 
-#### Construct data dictionary tree
+### Construct and visualize a data dictionary tree
 
 ``` r
 path <- "./data/test_dictionary"
@@ -100,7 +121,15 @@ print(dd, 'concept_str')
     47  ¦--809703864              RESP: University of Chicago Medicine             
     48  °--812620303              RESP: N/A                                        
 
-#### View data frame version of the data dictionary
+<div>
+
+> **Notice that all of the RESPONSE concepts are nested directly under
+> the root node rather than under the QUESTION objects. This is
+> necessary because they can appear only once in the tree.**
+
+</div>
+
+### View dictionary as a dataframe
 
 ``` r
 dd$df %>% 
@@ -121,7 +150,7 @@ dd$df %>%
     4 How old were you when you first smoked a cigarette?
     5        Age first used cigarettes on a regular basis
 
-#### Retrieve a key, given a cid
+### Retrieve a key, given a cid
 
 ``` r
 cid <- 639684251
@@ -131,7 +160,7 @@ print(key)
 
     [1] "Do you smoke cigarettes now?"
 
-Retrieve a concept id, given a key
+### Retrieve a concept id, given a key
 
 ``` r
 key <- "Do you smoke cigarettes now?"
@@ -141,7 +170,7 @@ print(cid)
 
     [1] 639684251
 
-Retrieve all metadata using the cid
+### Retrieve all metadata using the cid
 
 ``` r
 meta <- cidtree::get_meta(dd, cid)
