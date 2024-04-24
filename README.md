@@ -17,6 +17,9 @@ The objectives of `cidtree` package are to
 I intend this to be a toolkit to standardize the way that analysts
 interact with the Connect for Cancer Prevention data dictionary.
 
+Here is the **documentation**:
+<https://github.com/Analyticsphere/cidtree/blob/main/cidtree_docs.pdf>
+
 ## Example
 
 Load dependencies
