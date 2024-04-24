@@ -51,20 +51,30 @@ construct_dictionary_tree <- function(path="./data/test_dictionary") {
           "PRIMARY"   = format_and_truncate(" PRI_SRC: ",  n$key),
           "SECONDARY" = format_and_truncate("  SEC_SRC: ", n$key),
           "SOURCE"    = format_and_truncate("   SRC: ",    n$key),
-          "QUESTION"  = format_and_truncate("     QUEST: ", n$key),
+          "QUESTION"  = format_and_truncate("     QUEST: ", n$var_name),
           "RESPONSE"  = format_and_truncate(" RESP: ",     n$key)
         )
 
         str <- paste(as.character(n$responses), collapse = ", ")
         n$responses_str <- sprintf("%-120s", str)
 
-        # TODO: Handle SOURCE's differently to put them between questions and
-        # responses
+        # # Set parent_tmp to 0 for PRIMARY and RESPONSE objects, else retain the original parent
+        # n$parent_tmp <- ifelse(data$object_type %in% c("PRIMARY", "RESPONSE"),
+        #                        as.integer(0),
+        #                        data$parent)
 
-        # Set parent_tmp to 0 for PRIMARY and RESPONSE objects, else retain the original parent
-        n$parent_tmp <- ifelse(data$object_type %in% c("PRIMARY", "RESPONSE", "SOURCE"),
-                               as.integer(0),
-                               data$parent)
+        # Set parent_tmp to 0 for PRIMARY and RESPONSE objects.
+        # Insert additional generation for cases that have a SOURCE
+        if (!is.null(data$source)) {
+          n$parent_tmp  <- data$source
+          n$grandparent <- data$parent
+        } else if (data$object_type %in% c("PRIMARY", "RESPONSE")){
+          n$parent_tmp  <- as.integer(0)
+          n$grandparent <- NULL
+        } else {
+          n$parent_tmp  <- data$parent
+          n$grandparent <- NULL
+        }
 
         # TODO: add loop to handle arbitrary additional fields that the dictionary
         # may contain that are not in the list of required fields given above
@@ -109,7 +119,9 @@ construct_dictionary_tree <- function(path="./data/test_dictionary") {
   # Extract Parent-Child relationships from nodes
   relationships <- lapply(nodes, function(node) {
     if (!is.null(node$parent_tmp)) {
-      list(parent = node$parent_tmp, child = node$cid)
+      list(grandparent = node$grandparent,
+           parent = node$parent_tmp,
+           child = node$cid)
     }
   })
 
@@ -117,18 +129,26 @@ construct_dictionary_tree <- function(path="./data/test_dictionary") {
   df_relationships <- as.data.frame(
     do.call(rbind, relationships)
   )
-
   # print(df_relationships)
 
   # Assemble tree
   build_tree <- function(nodes) {
     for (i in 1:nrow(df_relationships)) {
-      child_cid   <- df_relationships[[i, "child"]]
-      parent_cid  <- df_relationships[[i, "parent"]]
+      child_cid        <- df_relationships[[i, "child"]]
+      parent_cid       <- df_relationships[[i, "parent"]]
+
       child_node  <- nodes[[which(Get(nodes, "name") == child_cid)]]
       parent_node <- nodes[[which(Get(nodes, "name") == parent_cid)]]
+
       parent_node$AddChildNode(child_node)
       child_node$RemoveAttribute("parent_tmp")
+
+      grandparent_cid <- df_relationships[[i, "grandparent"]]
+      if (!is.null(grandparent_cid)) {
+        grandparent_node <- nodes[[which(Get(nodes, "name") == grandparent_cid)]]
+        grandparent_node$AddChildNode(parent_node)
+      }
+
     }
     nodes[[1]] # Return the root node
   }
