@@ -61,19 +61,6 @@ other library, use this:
 
 ``` r
 devtools::install_github('Analyticsphere/cidtree')
-```
-
-    ── R CMD build ─────────────────────────────────────────────────────────────────
-    * checking for file ‘/private/var/folders/ml/50_pnlgj113gylck6rb6cl4rkcm1_t/T/Rtmpqc8eel/remotesd77013bffcec/Analyticsphere-cidtree-baff410/DESCRIPTION’ ... OK
-    * preparing ‘cidtree’:
-    * checking DESCRIPTION meta-information ... OK
-    * checking for LF line-endings in source and make files and shell scripts
-    * checking for empty or unneeded directories
-    * building ‘cidtree_0.1.0.tar.gz’
-    Warning: invalid uid value replaced by that for user 'nobody'
-    Warning: invalid gid value replaced by that for user 'nobody'
-
-``` r
 library(cidtree)
 ```
 
