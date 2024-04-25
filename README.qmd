@@ -11,7 +11,7 @@ format: gfm
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## Introduction
+## Introductiondd
 
 The objectives of `cidtree` package are to
 
@@ -101,6 +101,13 @@ meta$responses
 meta$concept_type
 ```
 
+### Retrieve all metadata using the cid
+
+```{r}
+bq_var_name <- "d_142654897_d_461488577"
+dd_var_name <- get_var_name(dd, bq_var_name)
+dd_var_name
+```
 ## References
 
 -   This library is built on the [data.tree](https://cran.r-project.org/web/packages/data.tree/vignettes/data.tree.html) library. So the `dd` object inherits has the same core functionality as an other `data.tree` object.

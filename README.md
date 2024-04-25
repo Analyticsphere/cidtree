@@ -2,7 +2,7 @@
 Jake Peters
 2024-04-01
 
-- [Introduction](#introduction)
+- [Introductiondd](#introductiondd)
 - [Examples](#examples)
   - [Install `cidtree`](#install-cidtree)
   - [Construct and visualize a data dictionary
@@ -13,11 +13,13 @@ Jake Peters
     key](#retrieve-a-concept-id-given-a-key)
   - [Retrieve all metadata using the
     cid](#retrieve-all-metadata-using-the-cid)
+  - [Retrieve all metadata using the
+    cid](#retrieve-all-metadata-using-the-cid-1)
 - [References](#references)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## Introduction
+## Introductiondd
 
 The objectives of `cidtree` package are to
 
@@ -203,6 +205,17 @@ meta$concept_type
 ```
 
     [1] "QUESTION"
+
+### Retrieve all metadata using the cid
+
+``` r
+bq_var_name <- "d_142654897_d_461488577"
+dd_var_name <- get_var_name(dd, bq_var_name)
+dd_var_name
+```
+
+                    461488577 
+    "RcrtES_Aware_v1r0_Email" 
 
 ## References
 

@@ -159,7 +159,7 @@ construct_dictionary_tree <- function(path="./data/test_dictionary") {
   # TODO: Write a version of this that will work with arbitrary field names
   dd$df <- data.tree::ToDataFrameTree(dd, 'cid', 'path', 'key', 'label',
                                       'var_name', 'responses', 'source',
-                                      'concept_type')
+                                      'concept_type', 'pathString')
 
   return(dd)
 

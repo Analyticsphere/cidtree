@@ -101,3 +101,27 @@ is_valid_cid <- function(input) {
 
   return(is.character(input) && grepl("^\\d{9}$", input))
 }
+
+#' Retrieve Variable Name for a Question Concept
+#'
+#' This function retrieves the variable name for a question concept, given a
+#' string containing it's Concept ID. This is particularly useful for labeling
+#' data from Connect's BigQuery tables.
+#'
+#' @param dd The data dictionary tree
+#' @param cid_str A string containing the concept id for a question concept.
+#' @return The variable name for the question concept.
+#' @examples
+#' get_var_name(dd, "d_142654897_d_461488577") # Should return "RcrtES_Aware_v1r0_Email"
+get_var_name <- function(dd, cid_str) {
+  # Retrieve the variable name with a filter function
+  var_name <- dd$Get('var_name', filterFun = function(x) x$concept_type == 'QUESTION' && grepl(x$cid, cid_str))
+
+  # If var_name is NULL, issue a warning with the cid_str
+  if (is.null(var_name)) {
+    warning(paste("No variable name found for the concept ID:", cid_str, "in the data dictionary."))
+  }
+
+  # Return the variable name (could be NULL)
+  return(var_name)
+}
