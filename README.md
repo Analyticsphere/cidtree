@@ -206,7 +206,7 @@ meta$concept_type
 
     [1] "QUESTION"
 
-### Retrieve all metadata using the cid
+### Get variable name for a variable with a compound name
 
 ``` r
 bq_var_name <- "d_142654897_d_461488577"
