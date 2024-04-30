@@ -9,10 +9,9 @@ License: MIT License
 Encoding: UTF-8
 LazyData: true
 Suggests:
-    kinitr,
     knitr,
     rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
-URL: https://analyticsphere.github.io/cidtree/, https://analyticsphere.github.io/cidtree/ 
+URL: https://analyticsphere.github.io/cidtree/
