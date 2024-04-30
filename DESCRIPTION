@@ -15,3 +15,4 @@ Suggests:
 VignetteBuilder: knitr
 RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
+URL: https://analyticsphere.github.io/cidtree/
