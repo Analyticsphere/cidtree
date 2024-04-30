@@ -24,5 +24,6 @@ concept ID within the data tree.
 \examples{
 # Assuming `dd` is a properly structured `data.tree` object
 # and '123' is a valid concept ID in the tree:
+dd <- construct_dictionary_tree()
 key_value <- get_key(dd, '123')
 }

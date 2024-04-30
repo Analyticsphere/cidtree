@@ -11,7 +11,7 @@ format: gfm
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## Introductiondd
+## Introduction
 
 The objectives of `cidtree` package are to
 
@@ -25,7 +25,10 @@ The objectives of `cidtree` package are to
 
 I intend this to be a toolkit to standardize the way that analysts interact with the Connect for Cancer Prevention data dictionary.
 
-Here is the **documentation**: <https://github.com/Analyticsphere/cidtree/blob/main/cidtree_docs.pdf>
+## Documentation
+Here is the [documentation page](https://analyticsphere.github.io/cidtree/index.html).
+
+A [pdf reference](https://github.com/Analyticsphere/cidtree/blob/main/cidtree_docs.pdf) document is also available. 
 
 ## Examples
 
@@ -110,7 +113,7 @@ dd_var_name <- get_var_name(dd, bq_var_name)
 dd_var_name
 ```
 
-###
+### 
 
 ```{r}
 dd$df %>% 

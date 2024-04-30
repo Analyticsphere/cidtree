@@ -19,5 +19,6 @@ This function retrieves responses associated with a given concept.
 }
 \examples{
 # Assuming `dd` is a properly structured `data.tree` object:
+dd <- construct_dictionary_tree()
 responses <- get_responses(dd, '123456789')
 }

@@ -19,6 +19,7 @@ This function retrieves metadata for a concept based on whether it's a valid con
 }
 \examples{
 # Assuming `dd` is a properly structured `data.tree` object:
+dd <- construct_dictionary_tree()
 metadata <- get_meta(dd, '123456789')  # for a valid cid
 metadata <- get_meta(dd, 'FinanceDept')  # for a valid key
 }

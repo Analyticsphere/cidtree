@@ -21,5 +21,6 @@ within the data.tree object representing the data dictionary.
 \examples{
 # Assuming `dd` is a properly structured `data.tree` object
 # and 'my_key' is a valid key in the tree:
+dd <- construct_dictionary_tree()
 concept_id <- get_cid(dd, 'my_key')
 }
