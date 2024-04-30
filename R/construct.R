@@ -10,7 +10,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom base tryCatch
 #' @examples
-#' dd <- construct_dictionary_tree("./data/test_dictionary")
+#' dd <- construct_dictionary_tree()
 #' # Print output so that it does not wrap on the screen
 #' output <- capture.output(print(dd, 'concept_str', 'concept_type','pathString'))
 #' cat(output, sep="\n")

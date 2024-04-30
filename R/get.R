@@ -12,6 +12,7 @@
 #' @examples
 #' # Assuming `dd` is a properly structured `data.tree` object
 #' # and '123' is a valid concept ID in the tree:
+#' dd <- construct_dictionary_tree()
 #' key_value <- get_key(dd, '123')
 #' @export
 #' @importFrom glue glue
@@ -34,6 +35,7 @@ get_key <- function(dd, cid) {
 #' @examples
 #' # Assuming `dd` is a properly structured `data.tree` object
 #' # and 'my_key' is a valid key in the tree:
+#' dd <- construct_dictionary_tree()
 #' concept_id <- get_cid(dd, 'my_key')
 #' @export
 get_cid <- function(dd, key) {
@@ -49,6 +51,7 @@ get_cid <- function(dd, key) {
 #' @return A dataframe containing metadata for the given concept, or NULL if not found.
 #' @examples
 #' # Assuming `dd` is a properly structured `data.tree` object:
+#' dd <- construct_dictionary_tree()
 #' metadata <- get_meta(dd, '123456789')  # for a valid cid
 #' metadata <- get_meta(dd, 'FinanceDept')  # for a valid key
 #' @export
@@ -72,6 +75,7 @@ get_meta <- function(dd, concept) {
 #' @return Responses associated with the concept if it is a question; otherwise, NULL.
 #' @examples
 #' # Assuming `dd` is a properly structured `data.tree` object:
+#' dd <- construct_dictionary_tree()
 #' responses <- get_responses(dd, '123456789')
 #' @export
 get_responses <- function(dd, concept) {
@@ -116,6 +120,7 @@ is_valid_cid <- function(input) {
 #' @param cid_str A string containing the concept id for a question concept.
 #' @return The variable name for the question concept.
 #' @examples
+#' dd <- construct_dictionary_tree()
 #' get_var_name(dd, "d_142654897_d_461488577") # Should return "RcrtES_Aware_v1r0_Email"
 get_var_name <- function(dd, cid_str) {
   # Retrieve the variable name with a filter function
