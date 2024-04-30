@@ -36,6 +36,7 @@ library(dplyr)
 library(data.tree)
 library(jsonlite)
 library(devtools)
+library(gt)
 ```
 
 ### Install `cidtree`
@@ -101,13 +102,25 @@ meta$responses
 meta$concept_type
 ```
 
-### Retrieve all metadata using the cid
+### Get variable name for a variable with a compound name
 
 ```{r}
 bq_var_name <- "d_142654897_d_461488577"
 dd_var_name <- get_var_name(dd, bq_var_name)
 dd_var_name
 ```
+
+###
+
+```{r}
+dd$df %>% 
+  select(source, cid, key, var_name, concept_type) %>% 
+  filter(concept_type=='QUESTION') %>% 
+  select(-concept_type) %>%
+  gt() %>% #cols_width(levelName ~ px(250)) %>%
+  sub_missing(missing_text = "")
+```
+
 ## References
 
 -   This library is built on the [data.tree](https://cran.r-project.org/web/packages/data.tree/vignettes/data.tree.html) library. So the `dd` object inherits has the same core functionality as an other `data.tree` object.

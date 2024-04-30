@@ -58,11 +58,6 @@ construct_dictionary_tree <- function(path="./data/test_dictionary") {
         str <- paste(as.character(n$responses), collapse = ", ")
         n$responses_str <- sprintf("%-120s", str)
 
-        # # Set parent_tmp to 0 for PRIMARY and RESPONSE objects, else retain the original parent
-        # n$parent_tmp <- ifelse(data$object_type %in% c("PRIMARY", "RESPONSE"),
-        #                        as.integer(0),
-        #                        data$parent)
-
         # Set parent_tmp to 0 for PRIMARY and RESPONSE objects.
         # Insert additional generation for cases that have a SOURCE
         if (!is.null(data$source)) {
@@ -160,7 +155,8 @@ construct_dictionary_tree <- function(path="./data/test_dictionary") {
   dd$df <- data.tree::ToDataFrameTree(dd, 'cid', 'path', 'key', 'label',
                                       'var_name', 'responses', 'source',
                                       'concept_type', 'pathString')
-
+  # Ensure that cid's are stored as strings rather than integers
+  dd$df$cid <- as.character(dd$df$cid)
   return(dd)
 
 

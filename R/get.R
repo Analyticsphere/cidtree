@@ -16,7 +16,11 @@
 #' @export
 #' @importFrom glue glue
 get_key <- function(dd, cid) {
+  # Implement using data.frame
   key <- dd$df[dd$df$cid == cid, "key"]
+  # Implement using data.tree
+  a <- dd$Get(function(node) node$key,
+              filterFun = function(node) node$name == cid)
 }
 
 #' Retrieve the Concept ID Associated with a Key

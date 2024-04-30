@@ -1,4 +1,7 @@
 # Install c4c
+library(glue)
+library(purrr)
+
 devtools::load_all("./")
 
 # Construct data dictionary tree
@@ -9,7 +12,8 @@ output <- capture.output(print(dd, 'concept_str', 'responses_str'))
 cat(output, sep="\n")
 
 # View data frame version of the data dictionary
-head(dd$df)
+dd$df <- data.tree::ToDataFrameTree(dd)
+print(df, 'path')
 
 # Retrieve a key, given a cid
 cid <- 639684251
@@ -25,4 +29,21 @@ print(cid)
 meta <- c4c::get_meta(dd, cid)
 print(meta)
 
+project <- "nih-nci-dceg-connect-stg-5519"
+dataset <- "FlatConnect"
+table   <- "participants_JP"
 
+bq_ds   <- bq_dataset(project, dataset)
+bq_tbl  <- bq_table(project, dataset, table)
+bq_vars <- bq_table_fields(bq_tbl)
+
+
+df_vars <- tibble(name = map_chr(bq_vars, ~ .x$name)) %>%
+  as.data.frame() %>%
+  mutate(path = sapply(name, extract_cids))
+
+dd$pathString
+
+str <- "d_142654897_d_461488577"
+var_name <- dd$Get("var_name", filterFun = function(x) x$concept_type == "QUESTION" && grepl(x$cid, str))
+var_name
