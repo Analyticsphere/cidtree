@@ -115,7 +115,7 @@ dd_var_name
 
 ### 
 
-```{r}
+```{r, echo=FALSE}
 dd$df %>% 
   select(source, cid, key, var_name, concept_type) %>% 
   filter(concept_type=='QUESTION') %>% 
