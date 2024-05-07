@@ -46,7 +46,7 @@ library(gt)
 
 **Option 1:** If you have cloned this repo and are working inside the \~/cidtree/ directory, use this:
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE, include=FALSE, }
 devtools::load_all("./")
 ```
 
@@ -60,7 +60,7 @@ library(cidtree)
 ### Construct and visualize a data dictionary tree
 
 ```{r}
-path <- "./data/test_dictionary"
+path <- get_path_to_example_dictionary()
 dd <- cidtree::construct_dictionary_tree(path)
 print(dd, 'concept_str')
 ```

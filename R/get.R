@@ -12,8 +12,10 @@
 #' @examples
 #' # Assuming `dd` is a properly structured `data.tree` object
 #' # and '123' is a valid concept ID in the tree:
-#' dd <- construct_dictionary_tree()
-#' key_value <- get_key(dd, '123')
+#' path <- get_path_to_example_dictionary() # Replace with path to your dictionary
+#' dd <- construct_dictionary_tree(path)
+#' key <- get_key(dd, '151488193')
+#' key
 #' @export
 #' @importFrom glue glue
 get_key <- function(dd, cid) {
@@ -35,8 +37,10 @@ get_key <- function(dd, cid) {
 #' @examples
 #' # Assuming `dd` is a properly structured `data.tree` object
 #' # and 'my_key' is a valid key in the tree:
-#' dd <- construct_dictionary_tree()
-#' concept_id <- get_cid(dd, 'my_key')
+#' path <- get_path_to_example_dictionary() # Replace with path to your dictionary
+#' dd <- construct_dictionary_tree(path)
+#' concept_id <- get_cid(dd, 'University of Chicago Medicine')
+#' concept_id
 #' @export
 get_cid <- function(dd, key) {
   cid <- dd$df[dd$df$key == key, "cid"]
@@ -51,9 +55,12 @@ get_cid <- function(dd, key) {
 #' @return A dataframe containing metadata for the given concept, or NULL if not found.
 #' @examples
 #' # Assuming `dd` is a properly structured `data.tree` object:
-#' dd <- construct_dictionary_tree()
-#' metadata <- get_meta(dd, '123456789')  # for a valid cid
-#' metadata <- get_meta(dd, 'FinanceDept')  # for a valid key
+#' path <- get_path_to_example_dictionary() # Replace with path to your dictionary
+#' dd <- construct_dictionary_tree(path)
+#' metadata <- get_meta(dd, '317567178')  # for a valid cid
+#' metadata
+#' metadata <- get_meta(dd, 'In the past month')  # for a valid key
+#' metadata
 #' @export
 get_meta <- function(dd, concept) {
   if (is_valid_cid(concept) && concept %in% dd$df$cid) {
@@ -74,9 +81,12 @@ get_meta <- function(dd, concept) {
 #' @param concept The concept ID or key whose responses are to be retrieved.
 #' @return Responses associated with the concept if it is a question; otherwise, NULL.
 #' @examples
-#' # Assuming `dd` is a properly structured `data.tree` object:
-#' dd <- construct_dictionary_tree()
-#' responses <- get_responses(dd, '123456789')
+#' path <- get_path_to_example_dictionary() # Replace with path to your dictionary
+#' dd <- construct_dictionary_tree(path)
+#' responses <- get_responses(dd, '763164658')
+#' responses
+#' responses <- get_responses(dd, 'How many cigarettes have you smoked in your entire life?')
+#' responses
 #' @export
 get_responses <- function(dd, concept) {
   meta <- get_meta(dd, concept)
@@ -120,8 +130,12 @@ is_valid_cid <- function(input) {
 #' @param cid_str A string containing the concept id for a question concept.
 #' @return The variable name for the question concept.
 #' @examples
-#' dd <- construct_dictionary_tree()
-#' get_var_name(dd, "d_142654897_d_461488577") # Should return "RcrtES_Aware_v1r0_Email"
+#' path <- get_path_to_example_dictionary() # Replace with path to your dictionary
+#' dd <- construct_dictionary_tree(path)
+#' var_name <- get_var_name(dd, "d_142654897_d_461488577") # Should return "RcrtES_Aware_v1r0_Email"
+#' var_name
+#'
+#' @export
 get_var_name <- function(dd, cid_str) {
   # Retrieve the variable name with a filter function
   var_name <- dd$Get('var_name', filterFun = function(x) x$concept_type == 'QUESTION' && grepl(x$cid, cid_str))
@@ -133,4 +147,17 @@ get_var_name <- function(dd, cid_str) {
 
   # Return the variable name (could be NULL)
   return(var_name)
+}
+
+#' Get Path to an example dictionary
+#'
+#' @return string Path to a folder containing JSON files for a example dictionary
+#'
+#' @examples
+#' path <- get_path_to_example_dictionary()
+#' print(path)
+#'
+#' @export
+get_path_to_example_dictionary <- function () {
+  system.file("extdata/test_dictionary", package = "cidtree", mustWork = TRUE)
 }

@@ -18,7 +18,10 @@ Responses associated with the concept if it is a question; otherwise, NULL.
 This function retrieves responses associated with a given concept.
 }
 \examples{
-# Assuming `dd` is a properly structured `data.tree` object:
-dd <- construct_dictionary_tree()
-responses <- get_responses(dd, '123456789')
+path <- get_path_to_example_dictionary() # Replace with path to your dictionary
+dd <- construct_dictionary_tree(path)
+responses <- get_responses(dd, '763164658')
+responses
+responses <- get_responses(dd, 'How many cigarettes have you smoked in your entire life?')
+responses
 }

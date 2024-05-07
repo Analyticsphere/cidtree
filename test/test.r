@@ -5,7 +5,8 @@ library(purrr)
 devtools::load_all("./")
 
 # Construct data dictionary tree
-dd <- c4c::construct_dictionary_tree(path = "./data/test_dictionary")
+path <- get_path_to_example_dictionary() # Replace with the path to your dictionary
+dd <- c4c::construct_dictionary_tree(path = path)
 
 # Print output so that it does not wrap on the screen
 output <- capture.output(print(dd, 'concept_str', 'responses_str'))

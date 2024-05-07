@@ -20,6 +20,9 @@ string containing it's Concept ID. This is particularly useful for labeling
 data from Connect's BigQuery tables.
 }
 \examples{
-dd <- construct_dictionary_tree()
-get_var_name(dd, "d_142654897_d_461488577") # Should return "RcrtES_Aware_v1r0_Email"
+path <- get_path_to_example_dictionary() # Replace with path to your dictionary
+dd <- construct_dictionary_tree(path)
+var_name <- get_var_name(dd, "d_142654897_d_461488577") # Should return "RcrtES_Aware_v1r0_Email"
+var_name
+
 }
