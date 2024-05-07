@@ -4,7 +4,7 @@ author: "Jake Peters"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using construct_dictionary_tree}
+  %\VignetteIndexEntry{Getting Started}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
