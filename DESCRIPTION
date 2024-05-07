@@ -8,6 +8,10 @@ Description: This package uses `data.tree` to construct a tree object from JSON 
 License: MIT License
 Encoding: UTF-8
 LazyData: true
+Imports:
+    dplyr,
+    data.tree,
+    jsonlite
 Suggests:
     knitr,
     rmarkdown
