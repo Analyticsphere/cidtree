@@ -113,7 +113,7 @@ dd_var_name <- get_var_name(dd, bq_var_name)
 dd_var_name
 ```
 
-### 
+### View data dictionary as data.frame
 
 ```{r, echo=FALSE}
 dd$df %>% 
