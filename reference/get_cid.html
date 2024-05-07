@@ -83,11 +83,9 @@ within the data.tree object representing the data dictionary.</p>
 <span class="r-in"><span><span class="co"># and 'my_key' is a valid key in the tree:</span></span></span>
 <span class="r-in"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_path_to_example_dictionary.html">get_path_to_example_dictionary</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Replace with path to your dictionary</span></span></span>
 <span class="r-in"><span><span class="va">dd</span> <span class="op">&lt;-</span> <span class="fu"><a href="construct_dictionary_tree.html">construct_dictionary_tree</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in library(dplyr):</span> there is no package called ‘dplyr’</span>
 <span class="r-in"><span><span class="va">concept_id</span> <span class="op">&lt;-</span> <span class="fu">get_cid</span><span class="op">(</span><span class="va">dd</span>, <span class="st">'University of Chicago Medicine'</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'dd' not found</span>
 <span class="r-in"><span><span class="va">concept_id</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'concept_id' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "809703864"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
