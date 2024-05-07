@@ -99,6 +99,7 @@ get_responses <- function(dd, concept) {
   return(meta$responses)
 }
 
+
 #' Validate if the Input is a 9-digit Concept ID (cid)
 #'
 #' This function checks if a given input is a valid 9-digit concept ID.
@@ -119,6 +120,7 @@ is_valid_cid <- function(input) {
 
   return(is.character(input) && grepl("^\\d{9}$", input))
 }
+
 
 #' Retrieve Variable Name for a Question Concept
 #'
@@ -148,6 +150,7 @@ get_var_name <- function(dd, cid_str) {
   # Return the variable name (could be NULL)
   return(var_name)
 }
+
 
 #' Get Path to an example dictionary
 #'
