@@ -11,11 +11,14 @@ LazyData: true
 Imports:
     dplyr,
     data.tree,
-    jsonlite
+    jsonlite,
+    glue
 Suggests:
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 URL: https://github.com/Analyticsphere/cidtree/, https://analyticsphere.github.io/cidtree/
+Config/testthat/edition: 3

@@ -19,8 +19,6 @@ This function returns the concept ID (cid) corresponding to a given key
 within the data.tree object representing the data dictionary.
 }
 \examples{
-# Assuming `dd` is a properly structured `data.tree` object
-# and 'my_key' is a valid key in the tree:
 path <- get_path_to_example_dictionary() # Replace with path to your dictionary
 dd <- construct_dictionary_tree(path)
 concept_id <- get_cid(dd, 'University of Chicago Medicine')
