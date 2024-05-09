@@ -84,10 +84,11 @@ data from Connect's BigQuery tables.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_path_to_example_dictionary.html">get_path_to_example_dictionary</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Replace with path to your dictionary</span></span></span>
 <span class="r-in"><span><span class="va">dd</span> <span class="op">&lt;-</span> <span class="fu"><a href="construct_dictionary_tree.html">construct_dictionary_tree</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in construct_dictionary_tree(path):</span> unused argument (path)</span>
 <span class="r-in"><span><span class="va">var_name</span> <span class="op">&lt;-</span> <span class="fu">get_var_name</span><span class="op">(</span><span class="va">dd</span>, <span class="st">"d_142654897_d_461488577"</span><span class="op">)</span> <span class="co"># Should return "RcrtES_Aware_v1r0_Email"</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'dd' not found</span>
 <span class="r-in"><span><span class="va">var_name</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 461488577 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "RcrtES_Aware_v1r0_Email" </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'var_name' not found</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

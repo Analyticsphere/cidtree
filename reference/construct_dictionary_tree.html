@@ -57,7 +57,7 @@ and builds a hierarchical tree based on the relationships defined within the fil
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">construct_dictionary_tree</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"./data/test_dictionary"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">construct_dictionary_tree</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -79,115 +79,12 @@ and builds a hierarchical tree based on the relationships defined within the fil
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/home/runner/work/_temp/Library/cidtree/extdata/test_dictionary"</span>
 <span class="r-in"><span><span class="va">dd</span> <span class="op">&lt;-</span> <span class="fu">construct_dictionary_tree</span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dplyr’</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:stats’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     filter, lag</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:base’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in construct_dictionary_tree(path):</span> unused argument (path)</span>
 <span class="r-in"><span><span class="co"># Print output so that it does not wrap on the screen</span></span></span>
 <span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/capture.output.html" class="external-link">capture.output</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">dd</span>, <span class="st">'concept_str'</span>, <span class="st">'concept_type'</span>,<span class="st">'pathString'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'dd' not found</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">output</span>, sep<span class="op">=</span><span class="st">"\n"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    levelName                                        concept_str</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  0                         DICT: connect4cancer                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   ¦--129084651              PRI_SRC: Survey                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   ¦   °--965707586           SEC_SRC: Smoking, Alcohol, and Sun Exposure     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   ¦       ¦--194557808          QUEST: SrvSAS_AgeCigsUseF_v1r0               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   ¦       ¦--790436165        SRC: Age first used cigarettes on a regular ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   ¦       ¦   ¦--408696162      QUEST: SrvSAS_AgeCigsUseRegF_v1r0            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   ¦       ¦   °--965482317      QUEST: SrvSAS_NeverSmokedReg_v1r0            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   ¦       ¦--947205597        SRC: Have you ever used any of these tobacco...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   ¦       ¦   ¦--535003378      QUEST: SrvSAS_NoTobacco_v1r0                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  ¦       ¦   ¦--686310465      QUEST: SrvSAS_TobaccoPipe_v1r0               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  ¦       ¦   °--712653855      QUEST: SrvSAS_Cigarettes_v1r0                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  ¦       ¦--639684251          QUEST: SrvSAS_UseCigsNow_v1r0                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  ¦       ¦--763164658          QUEST: SrvSAS_CigarettesLife_v1r0            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  ¦       °--798549704          QUEST: SrvSAS_UseCigsLast_v1r0               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  ¦--192505768              PRI_SRC: Recruitment                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  ¦   °--214456996           SEC_SRC: Eligibility Screener                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  ¦       ¦--142654897        SRC: How did you hear about this study? (Sel...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  ¦       ¦   ¦--461488577      QUEST: RcrtES_Aware_v1r0_Email               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  ¦       ¦   ¦--607081902      QUEST: RcrtES_Aware_v1r0_Invite              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  ¦       ¦   °--942255248      QUEST: RcrtES_Aware_v1r0_Mail                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  ¦       ¦--827220437          QUEST: RcrtES_Site_v1r0                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  ¦       °--948195369          QUEST: RcrtES_PINmatch_v1r0                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  ¦--104430631              RESP: No                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  ¦--125001209              RESP: Kaiser Permanente Colorado                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  ¦--132232896              RESP: 100 or more                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  ¦--151488193              RESP: 10 or less                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  ¦--181769837              RESP: Other                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  ¦--299561721              RESP: Yes, but rarely                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  ¦--300267574              RESP: Kaiser Permanente Hawaii                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  ¦--303349821              RESP: Marshfield Clinic Health System            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  ¦--317567178              RESP: In the past month                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  ¦--327912200              RESP: Kaiser Permanente Georgia                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  ¦--353358909              RESP: Yes                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  ¦--419415087              RESP: No, not at all                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  ¦--452412599              RESP: Kaiser Permanente Northwest                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  ¦--484055234              RESP: More than a month ago, but in the past year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  ¦--486319890              RESP: 50 to 99                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  ¦--517700004              RESP: National Cancer Institute                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  ¦--531629870              RESP: HealthPartners                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  ¦--548392715              RESP: Henry Ford Health System                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  ¦--648960871              RESP: Never                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  ¦--657167265              RESP: Sanford Health                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  ¦--716761013              RESP: Yes, but some days                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  ¦--802197176              RESP: More than 1 year ago                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  ¦--804785430              RESP: Yes, every day                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  ¦--805449318              RESP: 11 to 49                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  ¦--809703864              RESP: University of Chicago Medicine             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  °--812620303              RESP: N/A                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    concept_type                                pathString</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          ROOT                                         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       PRIMARY                               0/129084651</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     SECONDARY                     0/129084651/965707586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      QUESTION           0/129084651/965707586/194557808</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        SOURCE           0/129084651/965707586/790436165</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6      QUESTION 0/129084651/965707586/790436165/408696162</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      QUESTION 0/129084651/965707586/790436165/965482317</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8        SOURCE           0/129084651/965707586/947205597</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9      QUESTION 0/129084651/965707586/947205597/535003378</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10     QUESTION 0/129084651/965707586/947205597/686310465</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11     QUESTION 0/129084651/965707586/947205597/712653855</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12     QUESTION           0/129084651/965707586/639684251</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13     QUESTION           0/129084651/965707586/763164658</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14     QUESTION           0/129084651/965707586/798549704</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15      PRIMARY                               0/192505768</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16    SECONDARY                     0/192505768/214456996</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17       SOURCE           0/192505768/214456996/142654897</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18     QUESTION 0/192505768/214456996/142654897/461488577</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19     QUESTION 0/192505768/214456996/142654897/607081902</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20     QUESTION 0/192505768/214456996/142654897/942255248</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21     QUESTION           0/192505768/214456996/827220437</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22     QUESTION           0/192505768/214456996/948195369</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23     RESPONSE                               0/104430631</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24     RESPONSE                               0/125001209</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25     RESPONSE                               0/132232896</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26     RESPONSE                               0/151488193</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27     RESPONSE                               0/181769837</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28     RESPONSE                               0/299561721</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29     RESPONSE                               0/300267574</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30     RESPONSE                               0/303349821</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31     RESPONSE                               0/317567178</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32     RESPONSE                               0/327912200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33     RESPONSE                               0/353358909</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34     RESPONSE                               0/419415087</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35     RESPONSE                               0/452412599</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36     RESPONSE                               0/484055234</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37     RESPONSE                               0/486319890</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38     RESPONSE                               0/517700004</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39     RESPONSE                               0/531629870</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40     RESPONSE                               0/548392715</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41     RESPONSE                               0/648960871</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42     RESPONSE                               0/657167265</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43     RESPONSE                               0/716761013</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44     RESPONSE                               0/802197176</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45     RESPONSE                               0/804785430</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46     RESPONSE                               0/805449318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47     RESPONSE                               0/809703864</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48     RESPONSE                               0/812620303</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'output' not found</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
