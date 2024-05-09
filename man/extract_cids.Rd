@@ -19,8 +19,8 @@ and returns them as a concatenated single string separated by slashes.
 }
 \examples{
 # Extract nine-digit numbers from a sample string
-extract_cids("123456789 d_987654321 other text")
-# Output: "123456789/987654321"
+extract_cids("d_142654897_d_461488577")
+# Output: "142654897/461488577"
 
 extract_cids("no nine-digit numbers")
 # Output: NA

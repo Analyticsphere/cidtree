@@ -35,8 +35,6 @@ get_key <- function(dd, cid) {
 #' @param key A key to locate the corresponding concept ID.
 #' @return The concept ID associated with the given key. If no match is found, returns NULL.
 #' @examples
-#' # Assuming `dd` is a properly structured `data.tree` object
-#' # and 'my_key' is a valid key in the tree:
 #' path <- get_path_to_example_dictionary() # Replace with path to your dictionary
 #' dd <- construct_dictionary_tree(path)
 #' concept_id <- get_cid(dd, 'University of Chicago Medicine')
@@ -54,7 +52,6 @@ get_cid <- function(dd, key) {
 #' @param concept The concept ID or key to find metadata for.
 #' @return A dataframe containing metadata for the given concept, or NULL if not found.
 #' @examples
-#' # Assuming `dd` is a properly structured `data.tree` object:
 #' path <- get_path_to_example_dictionary() # Replace with path to your dictionary
 #' dd <- construct_dictionary_tree(path)
 #' metadata <- get_meta(dd, '317567178')  # for a valid cid

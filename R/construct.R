@@ -6,7 +6,7 @@
 #' @param path The path to the directory containing JSON files.
 #' @return A `Node` object representing the root of the dictionary tree.
 #' @importFrom data.tree Node
-#' @importFrom dplyr Filter
+#' @importFrom dplyr filter
 #' @importFrom jsonlite fromJSON
 #' @importFrom base tryCatch
 #' @examples
@@ -17,7 +17,7 @@
 #' output <- capture.output(print(dd, 'concept_str', 'concept_type','pathString'))
 #' cat(output, sep="\n")
 #' @export
-construct_dictionary_tree <- function(path="./data/test_dictionary") {
+construct_dictionary_tree <- function() {
 
   library(dplyr)
   library(data.tree)

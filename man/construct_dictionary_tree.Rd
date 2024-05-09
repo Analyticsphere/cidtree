@@ -4,7 +4,7 @@
 \alias{construct_dictionary_tree}
 \title{Construct a Dictionary Tree from JSON Files}
 \usage{
-construct_dictionary_tree(path = "./data/test_dictionary")
+construct_dictionary_tree()
 }
 \arguments{
 \item{path}{The path to the directory containing JSON files.}

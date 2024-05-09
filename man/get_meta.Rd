@@ -18,7 +18,6 @@ A dataframe containing metadata for the given concept, or NULL if not found.
 This function retrieves metadata for a concept based on whether it's a valid concept ID (cid) or key.
 }
 \examples{
-# Assuming `dd` is a properly structured `data.tree` object:
 path <- get_path_to_example_dictionary() # Replace with path to your dictionary
 dd <- construct_dictionary_tree(path)
 metadata <- get_meta(dd, '317567178')  # for a valid cid
